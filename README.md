@@ -2,6 +2,20 @@
 
 Autobuyer for Orb Of Creation.
 
+### Installation
+
+AutoBuyOrb is a BepInEx mod. You can find instructions on how to install BepInEx [here](https://docs.bepinex.dev/articles/user_guide/installation/index.html). *TLDR: Download BepInEx, extract it to the game's root folder, and (optionally) run the game once to generate the BepInEx folder structure.*
+The latest version of BepInEx can be downloaded from [here](https://github.com/BepInEx/BepInEx/releases). Only BepInEx 5.x is supported. The BepInEx 6.x beta will not work with this mod.
+
+After installing BepInEx, download the latest release of AutoBuyOrb from the [releases page](https://github.com/IngoHHacks/AutobuyOrb/releases/latest) and place the `AutobuyOrb.dll` file in the `BepInEx/plugins` folder. (If `plugins` does not exist, create it.)
+
+For Linux/Steam Deck users, you should set the following launch option to make sure BepInEx works correctly:
+```
+WINEDLLOVERRIDES="winhttp=n,b" %command%
+```
+
+If you want to report bugs, please send the log file located in `BepInEx/LogOutput.log` along with a description of the issue. You can also enable the console window in the config file (Set `Enabled` to `true` in `BepInEx/config/BepInEx.cfg` under the `[Logging.Console]` section) to see the log output in real time.
+
 ### Keybinds
 
 (Configurable in the config file/settings panel)
