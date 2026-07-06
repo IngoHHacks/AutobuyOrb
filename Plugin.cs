@@ -22,7 +22,7 @@ public class Plugin : BaseUnityPlugin
 
     public const string PluginGuid = "IngoH.OrbOfCreation.AutoBuyOrb";
     public const string PluginName = "AutobuyOrb";
-    public const string PluginVer = "1.1.2";
+    public const string PluginVer = "1.1.3";
 
     internal static ManualLogSource Log;
     internal static readonly Harmony Harmony = new(PluginGuid);
@@ -454,6 +454,10 @@ public class AutoBuyer : MonoBehaviour
         if (maxBulkBuy < 0)
         {
             maxBulkBuy = Math.Max(0, ActionManager.GetRemainingRoom() + maxBulkBuy);
+            if (maxBulkBuy == 0)
+            {
+                return;
+            }
         }
 
         var numPurchased = 0;

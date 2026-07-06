@@ -1,4 +1,7 @@
-﻿## 1.1.2
+﻿## 1.1.3
+- Fixed negative bulk buy limit (leaving queue space) not working correctly.
+
+## 1.1.2
 
 - Fixed an issue where the autobuyer would consider attributes with a cost of less than 1 and a current resource
   quantity of 0 due to the BigDouble class handling infinity comparisons incorrectly, causing it to get stuck in a loop,
