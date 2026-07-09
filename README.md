@@ -22,6 +22,8 @@ If you want to report bugs, please send the log file located in `BepInEx/LogOutp
 
 `LAlt+Period` - Cycle modes  
 `LAlt+Comma` - Cycle modes backwards  
+`LAlt+Equals` - Cycle Min Buy amount
+`LAlt+Minus` - Cycle Min Buy amount backwards
 `LAlt+M` - Buy max (one time)  
 `F1` - Toggle affordability display
 
@@ -46,13 +48,20 @@ number to indicate that you could afford more if queue space was available.
 
 ### Extra information
 
-When enabled, the autobuyer will buy one attribute every game tick if possible based on the mode. The number of ticks
-per second depends on your FPS limit setting.
+When enabled, the autobuyer will buy attributes every game frame if possible based on the mode. The number of frames per second depends on your FPS limit setting.
 
-The buy max function buys as many attributes as possible in one tick.
+The number of attributes bought per tick is limited by the Max Bulk Buy setting.
+The default Max Bulk Buy setting is 1, meaning the autobuyer will only buy one attribute per tick.
+Setting Max Bulk Buy to 0 will remove the limit (except the limit of available queue space). Setting Max Bulk Buy to a negative number will limit purchases to leave the given number of queue space free. For example, setting the limit to -5 will make the autobuyer buy attributes until there are 5 free queue spaces left.
+
+If `BuyInterval` is set to a value greater than 0, the autobuyer will only run every `BuyInterval` seconds instead of every frame. This can be a decimal value (e.g. 0.5).
+
+The buy max function buys as many attributes as possible in one tick, regardless of most settings, including Max Bulk Buy, Min Buy, Buy Interval, and autobuyer mode. It will still respect the queue space limit and will not buy locked attributes or non-attribute purchases.
 
 All modes and the buy max function work cheapest to most expensive, relative to the ratio of the cost to your current
 resources. For attributes with multiple costs, the autobuyer considers the most expensive cost (relative to your current
 resources) when determining whether to buy it and in what order to buy it.
 
 Locked attributes and non-attribute purchases will not be bought.
+
+Extra info about the configuration can be found in the config file `AutobuyOrb.cfg` in the `BepInEx/config` folder. Some config entries can also be edited in-game through the settings panel in the main menu.

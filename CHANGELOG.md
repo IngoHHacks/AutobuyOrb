@@ -1,4 +1,14 @@
-﻿## 1.1.3
+﻿## 1.1.4-beta
+- Added an option (`MaxTimeFramePct`) to set a maximum time per frame for the autobuyer to run to reduce performance impact. By default, the autobuyer will run for a maximum of 50% of the time per frame (based on the FPS limit setting, 60 if FPS limit is set to unlimited). Note that it will only check the time per frame after each attribute purchase, so if an attribute takes a long time to purchase, it may exceed the time limit.
+- Added an option (`BuyInterval`) to set a minimum time between autobuyer runs. By default, this is set to 0, meaning the autobuyer will run every frame. Setting it to a higher value will reduce the performance impact of the autobuyer, but may also reduce its effectiveness.
+- Added an option (`MinBuy`) to set a minimum number of attributes of a type to buy at the same time. Set to 0 (default) to use the bulk buy limit.
+- Added an option (`BuyMoreThanMin`) to buy as many attributes of a type as possible if the total cost is still below the limit.
+- Added an option (`CheapestFirst`) to enable/disable buying attributes in order of cheapest to most expensive. If disabled, the autobuyer will buy attributes an arbitrary cycle. Cheapest first was the default behavior before this update, but this option is now disabled by default to reduce performance impact.
+- Added an option (`CheatBypassQueuelimit`) for testing purposes to bypass the queue limit. This is not recommended for normal use, as it may cause issues with the game. It is only intended for testing and debugging purposes.
+- All non-cheat config options are now editable in-game through the settings panel in the main menu. Cheat options (currently only `CheatBypassQueuelimit`) are not editable in-game and can only be changed in the config file due to not being intended for normal use.
+- If minimum queue space left (negative bulk buy limit) is set to be greater than or equal to the total number of queue spaces, the autobuyer will now buy one attribute if the queue is empty, instead of doing nothing. This is to prevent the autobuyer from not doing anything in the early game when queue space is limited, if the minimum queue space left is set to a high number.
+
+## 1.1.3
 - Fixed negative bulk buy limit (leaving queue space) not working correctly.
 
 ## 1.1.2
